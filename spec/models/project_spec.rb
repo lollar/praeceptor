@@ -7,7 +7,6 @@ describe Project do
 
   context 'database validations' do
     project = Project.new
-    it { expect(project.save).to eq false }
-    it { expect(project.save!).to raise_error }
+    it { expect { project.save! }.to raise_error(ActiveRecord::NotNullViolation) }
   end
 end
