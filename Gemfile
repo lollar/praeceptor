@@ -14,6 +14,7 @@ gem 'therubyracer', '~> 0.12.3'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'capybara', '~> 2.13'
 end
 
