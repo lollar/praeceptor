@@ -1,0 +1,8 @@
+= form_for @project, url: projects_path(@project) do |f|
+  = f.label :title, 'Title'
+  = f.text_field :title
+  = f.label :requirements, 'Requirements'
+  = f.text_area :requirements
+  = f.label :skill_level, 'Skill Level'
+  = f.select :skill_level, options_for_select(ProjectForm::SKILL_LEVELS)
+  = f.submit
