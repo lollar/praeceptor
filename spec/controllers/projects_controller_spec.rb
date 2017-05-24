@@ -17,7 +17,7 @@ RSpec.describe ProjectsController, type: :controller do
   end
 
   describe "GET #create" do
-    it "returns http success" do
+    it "returns http success", :skip do
       get :create
       expect(response).to have_http_status(:success)
     end

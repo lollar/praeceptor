@@ -1,5 +1,6 @@
 # require 'spec_helper'
 require 'rails_helper'
+
 describe Project do
   context 'initialization' do
     specify { expect(Project.new).to be_a(Project) }
