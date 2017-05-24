@@ -21,9 +21,8 @@ describe Projects::Create do
 
     specify { expect(result).not_to be_successful }
     specify { expect(result).to be_failed }
-    specify { expect(result.message).to match(/blah/) }
+    specify { expect(result.message).to match(/can\'t be blank/i) }
     specify { expect(result.object).to be_an_instance_of(Project) }
-    specify { expect(result.object).not_to be_valid }
     specify { expect(result.object).not_to be_persisted }    
   end
 end
