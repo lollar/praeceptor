@@ -8,5 +8,19 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    @action = Projects::Create.run(project_params)
+
+    if @action.successful?
+      redirect_to project_path(@action.object)
+    else
+      @project = @action.object
+      render :new
+    end
+  end
+
+  private
+
+  def project_params
+    params.require(:project).permit(:title, :requirements, :skill_leve)
   end
 end
