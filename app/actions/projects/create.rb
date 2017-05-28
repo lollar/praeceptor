@@ -22,11 +22,9 @@ module Projects
     end
 
     def save_project!
-      begin
-        project.save
-      rescue ActiveRecord::NotNullViolation 
-        false
-      end
+      return false unless project_form.valid? 
+      
+      project.save
     end
 
     def result_message

@@ -19,14 +19,14 @@ RSpec.describe ProjectsController, type: :controller do
   describe "GET #create" do
     it "creates project and redirects with all parameters set" do
       post :create, params: { project: { title: 'Something wonderful', requirements: '...', skill_level: 'senior' } }
-      expect(response).to redirect_to(projects_path)
-      expect(assigns(:action).project.title).to eq('Something wonderful')
+      expect(response).to redirect_to(project_path(assigns(:action).object))
+      expect(assigns(:action).object.title).to eq('Something wonderful')
     end
 
     it 'creates project and redirects with only reqd parameters set' do
       post :create, params: { project: { title: 'Title', requirements: 'Requirements' } }
-      expect(response).to redirect_to(projects_path)
-      expect(assigns(:action).project.title).to eq('Title')
+      expect(response).to redirect_to(project_path(assigns(:action).object))
+      expect(assigns(:action).object.title).to eq('Title')
     end
 
     it 'does not create the project and renders new' do
