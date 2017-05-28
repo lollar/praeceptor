@@ -17,10 +17,23 @@ RSpec.describe ProjectsController, type: :controller do
   end
 
   describe "GET #create" do
-    it "returns http success", :skip do
-      get :create
-      expect(response).to have_http_status(:success)
+    it "creates project and redirects with all parameters set" do
+      post :create, project: { title: 'Something wonderful', requirements: '...', skill_level: 'senior' }
+      expect(response).to redirect_to(projects_path)
+      expect(assigns(:action).project.title).to eq('Something wonderful')
+    end
+
+    it 'creates project and redirects with only reqd parameters set' do
+      post :create, project: { title: 'Title', requirements: 'Requirements' }
+      expect(response).to redirect_to(projects_path)
+      expect(assigns(:action).project.title).to eq('Title')
+    end
+
+    it 'does not create the project and renders new' do
+      post :create, project: { title: '', requirements: '...' }
+      expect(response).to render_template(:new)
+      expect(assigns(:project)).to be_present
+      expect(assigns(:project)).not_to be_persisted
     end
   end
-
 end
