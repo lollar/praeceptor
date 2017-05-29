@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @action = Projects::Create.run(project_params)
+    @action = Projects::Create.run(project_form_params)
 
     if @action.successful?
       redirect_to project_path(@action.object)
@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
 
   private
 
-  def project_params
-    params.require(:project).permit(:title, :requirements, :skill_leve)
+  def project_form_params
+    params.require(:project_form).permit(:title, :requirements, :skill_level)
   end
 end
