@@ -7,7 +7,7 @@ gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'haml-rails', '~> 0.9.0'
+gem 'haml-rails', '~> 1.0'
 gem 'arbitrium', '~> 1.0', '>= 1.0.6'
 
 gem 'therubyracer', '~> 0.12.3'
