@@ -9,6 +9,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'haml-rails', '~> 1.0'
 gem 'arbitrium', '~> 1.0', '>= 1.0.6'
+gem 'devise', '~> 4.3'
 
 gem 'therubyracer', '~> 0.12.3'
 
